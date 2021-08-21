@@ -22,7 +22,7 @@ $pdo = new PDO(
 
 $sql = "select iso_2 FROM boundaries
 left join codes on boundaries.iso1 = codes.ISO_3
-where ST_Contains(boundaries.shape, GeomFromText('POINT($lon $lat)'))";
+where ST_Contains(boundaries.shape, GeomFromText('POINT($lon $lat)',3))";
 
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
